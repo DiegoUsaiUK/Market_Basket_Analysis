@@ -1,5 +1,6 @@
 ### Market_Basket_Analysis
-This is the code for a Market Basket Analysis project I have carried out. I have split the output into __THREE PARTS__ that I have organised as follows:
+This is the code for a __Market Basket Analysis__ project I have carried out. 
+I have split the output into __three parts__ that I have organised as follows:
 
 1. In the __first__ chapter, I source, explore and format a complex dataset suitable for modelling with recommendation algorithms.
  The __DATA__ can be found here: [__Online Retail__](http://archive.ics.uci.edu/ml/datasets/online+retail)
