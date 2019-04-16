@@ -1,17 +1,14 @@
 ### Loading the Packages
-```{r libraries}
 library(tidyverse)            
 library(knitr)
 library(Matrix)
 library(recommenderlab)
-```
 
 ## Data
 
 # read retail data from part 2
 retail <- readRDS("retail.rds")
 # 517,354
-
 
 # Create `past_orders_matrix` containing the history of past orders. This is a is a user-item sparse matrix. 
 # This is needed in the `server.R` file for all the calculations. 
@@ -89,7 +86,6 @@ cat('runtime', end - start)
 ## runtime 0.630003
     
 ## Let's now run the IBCF model and test the runtime with recommenderlab to compare performances
-
 # Convert `all_orders` to class "binaryRatingMatrix"
 all_orders_brm <- as(all_orders, "binaryRatingMatrix")
 
