@@ -12,6 +12,7 @@ library(recommenderlab)
 retail <- readRDS("retail.rds")
 # 517,354
 
+
 # Create `past_orders_matrix` containing the history of past orders. This is a is a user-item sparse matrix. 
 # This is needed in the `server.R` file for all the calculations. 
 past_orders_matrix <- retail %>%
@@ -23,7 +24,9 @@ past_orders_matrix <- retail %>%
     spread(Description, value, fill = 0) %>%
     select(-InvoiceNo) %>% 
     # Convert to matrix
-    as.matrix() 
+    as.matrix() %>% 
+    # Convert to class "dgCMatrix"
+    as("dgCMatrix")
 
 # I save the file for use in the app
 saveRDS(past_orders_matrix, 
@@ -56,13 +59,12 @@ new_order <- item_list %>%
     # Spread into sparse matrix format
     spread(key = Description, value = value) %>%
     # Change to a matrix
-    as.matrix()
+    as.matrix() %>% 
+    # Convert to class "dgCMatrix"
+    as("dgCMatrix")
 
 # Then, I add the `new_order` to the `past_orders_matrix` as its first order.
-all_orders <- rbind(new_order,past_orders_matrix)
-
-# Convert to class "dgCMatrix"
-all_orders_dgc <- as(t(all_orders), "dgCMatrix")
+all_orders_dgc <- t(rbind(new_order,past_orders_matrix))
 
 # Now, I set a number of parameters required by the Improved CF to work:
 
@@ -99,6 +101,3 @@ param = list(k = 5))
 end <- Sys.time()
 cat('runtime', end - start)
 ## runtime 12.75939
-
-# The speed gain is over 15 times!
-# This is rather promising for the Shiny App!
