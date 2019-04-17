@@ -8,4 +8,5 @@ I have split the output into __three parts__ that I have organised as follows:
 2. For the __second__ part, I will apply various machine learning algorithms for Product Recommendation and select the best performing model. This will be done with the support of the __recommenderlab__ package.
  For Recommenderlab Package see:  [https://cran.r-project.org/package=recommenderlab](https://cran.r-project.org/package=recommenderlab)
  
-3. In the __third__ and final instalment, I will implement the selected model in a Shiny Web Application.
+3. In the __third__ and final instalment, I will implement the selected model in a Shiny Web Application. 
+  Find here the [__Product Recommender.__](https://diegousai.shinyapps.io/Product_Recommender/)
